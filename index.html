@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BLE Sensor Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="ble.js"></script>
+    <script src="sketch.js"></script>
+</head>
+<body>
+    <label>
+        Sensor Type:
+        <select id="sensorType" onchange="loadSensorConfig()">
+          <option value="anyskin">AnySkin</option>
+          <option value="eflesh">eFlesh</option>
+        </select>
+      </label>
+      
+    <button onclick="connectBLE()">Connect to Sensor</button>
+    <button onclick="setBaseline()">Recalibrate Baseline</button>
+  
+    <div>
+      <label>
+        XY Scale:
+        <input type="number" id="xyScale" value="0.25" step="0.1">
+      </label>
+      <label style="margin-left: 1em;">
+        Z Scale:
+        <input type="number" id="zScale" value="0.5" step="0.1">
+      </label>
+    </div>
+  
+    <div id="error"></div>
+  </body>
+  
+</html>
