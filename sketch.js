@@ -16,7 +16,11 @@ const sensorConfigs = {
             -90, // left sensor: rotated -90 (left)
             180,   // right sensor: 180
             90,  // bottom sensor: rotated 90° (down)
-            0]
+            0],
+      scales: {
+        xyScale: 0.25,
+        zScale: 0.5
+      }
     },
     eflesh: {
       imagePath: 'eflesh.png',
@@ -27,11 +31,15 @@ const sensorConfigs = {
         [5, -75],      // top
         [5, 120]   // bottom
       ],
-      rotations: [-90, // center sensor: rotated -90° (up)
+      rotations: [90, // center sensor: rotated -90° (up)
             90, // left sensor: rotated -90 (left)
-            -90,   // right sensor: 180
+            0,   // right sensor: 180
             -90,  // top sensor: rotated 90° (down)
-            180]
+            180],
+      scales: {
+        xyScale: 0.3,
+        zScale: 0.4
+      }
     }
 };
 
@@ -50,6 +58,10 @@ function loadSensorConfig() {
   
     anchors = config.anchors;
     rotations = config.rotations;
+    
+    // Set scale values from config
+    document.getElementById("xyScale").value = config.scales.xyScale;
+    document.getElementById("zScale").value = config.scales.zScale;
 }
   
 function preload() {} // leave empty
